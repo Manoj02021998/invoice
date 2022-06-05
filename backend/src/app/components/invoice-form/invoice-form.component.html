@@ -1,0 +1,64 @@
+<div class="container mt-4">
+    <!-- <h3>{{result}}</h3> -->
+    <form [formGroup]="invoiceForm" (ngSubmit)="submitInvoice(invoiceForm.value)" class="border p-4 rounded-5" autocomplete="off">
+        <div class="row g-0">
+            <div class="col text-center p-2 mb-3 bg-light">
+                <span class="fs-3">Create Invoice</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 mb-3">
+                <label for="invoice_number" class="form-label">Invoice Number</label>
+                <input autocomplete="new-password" type="number" class="form-control" formControlName="invoice_number" (keypress)="isNumberKey($event)" required>
+                <span class="text-danger" *ngIf="invoiceForm.controls.invoice_number.errors?.required && invoiceForm.controls.invoice_number.touched">Invoice number is required!</span>
+                <span class="text-danger" *ngIf="invoiceForm.controls.invoice_number.errors?.pattern && invoiceForm.controls.invoice_number.touched">Invoice number must be numbers only!</span>
+            </div>
+            <div class="col-6 mb-3">
+                <label for="party_name" class="form-label">Party Name</label>
+                <input type="text" autocomplete="new-password" class="form-control" formControlName="party_name" (keypress)="isCharKey($event)" required>
+                <span class="text-danger" *ngIf="invoiceForm.controls.party_name.errors?.required && invoiceForm.controls.party_name.touched">Party name is required!</span>
+                <span class="text-danger" *ngIf="invoiceForm.controls.party_name.errors?.pattern && invoiceForm.controls.party_name.touched">Party name should contain only alphabets and spaces!</span>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-6 mb-3">
+                <label for="invoice_date" class="form-label">Invoice Date</label>
+                <input type="date" class="form-control" autocomplete="new-password" formControlName="invoice_date">
+            </div>
+            <div class="col-6 mb-3">
+                <label for="pan" class="form-label">PAN</label>
+                <input type="text" class="form-control" autocomplete="new-password" formControlName="pan">
+                <span class="text-danger" *ngIf="invoiceForm.controls.pan.errors?.pattern && invoiceForm.controls.pan.touched">Please enter a valid PAN!</span>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col mb-3 ">
+                <label for="rate" class="form-label">Rate</label>
+                <input type="number" step=".01" class="form-control" autocomplete="new-password" formControlName="rate" required>
+                <span class="text-danger" *ngIf="invoiceForm.controls.rate.errors?.required && invoiceForm.controls.rate.touched">Rate is required</span>
+                <span class="text-danger" *ngIf="invoiceForm.controls.rate.errors?.pattern && invoiceForm.controls.rate.touched">Please enter rate with atmost 2 decimal places only!</span>
+            </div>
+            <div class="col mb-3 ">
+                <label for="tax" class="form-label">Tax</label>
+                <input type="number" step=".01" class="form-control" autocomplete="new-password" formControlName="tax" required>
+                <span class="text-danger" *ngIf="invoiceForm.controls.tax.errors?.required && invoiceForm.controls.tax.touched">Tax is required</span>
+                <span class="text-danger" *ngIf="invoiceForm.controls.tax.errors?.pattern && invoiceForm.controls.tax.touched">Please enter tax with atmost 2 decimal places only!</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3 ">
+                <label for="total" class="form-label">Total</label>
+                <input type="text" class="form-control" readpnly formControlName="total">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

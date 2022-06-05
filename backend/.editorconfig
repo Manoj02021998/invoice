@@ -1,0 +1,36 @@
+<<<<<<< HEAD
+# Editor configuration, see https://editorconfig.org
+=======
+>>>>>>> f0c6a3b (first commit)
+root = true
+
+[*]
+charset = utf-8
+<<<<<<< HEAD
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.ts]
+quote_type = single
+
+[*.md]
+max_line_length = off
+trim_trailing_whitespace = false
+=======
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{yml,yaml}]
+indent_size = 2
+
+[docker-compose.yml]
+indent_size = 4
+>>>>>>> f0c6a3b (first commit)

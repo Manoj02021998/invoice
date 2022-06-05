@@ -1,0 +1,38 @@
+<div class="container">
+    <!-- <h3>{{result}}</h3> -->
+    <form [formGroup]="loginform" (ngSubmit)="login(loginform.value)" class="border p-4 rounded-5" autocomplete="off">
+         
+        <div class="row g-0">
+            <div class="col text-center p-2 mb-3 bg-light">
+                <span  class="fs-3">Login</span>
+
+            </div>
+            <div class="text-center mb-2">
+               <span>Not Yet Registered? </span> <a routerLink="/register">Register Here</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="text" class="form-control" autocomplete="new-password" id="email" formControlName="email">
+                <span class="text-danger" *ngIf="loginform.controls.email.errors?.required && loginform.controls.email.touched">Email is required</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col mb-3 ">
+                <label for="pwd" class="form-label">Password</label>
+                <input type="password" class="form-control" autocomplete="new-password" id="pwd" formControlName="password">
+                <span class="text-danger" *ngIf="loginform.controls.password.errors?.required && loginform.controls.password.touched">Password is required</span>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

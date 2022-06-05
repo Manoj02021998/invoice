@@ -1,0 +1,55 @@
+<div class="container">
+    <!-- <h3>{{result}}</h3> -->
+    <form [formGroup]="registerForm" (ngSubmit)="registerSubmited(registerForm.value)" class="border p-4 rounded-5" autocomplete="off">
+        <div class="row g-0">
+            <div class="col text-center p-2 mb-3 bg-light">
+                <span class="fs-3">Register</span>
+            </div>
+            <div class="text-center mb-2">
+                <span>Already Registered? </span> <a routerLink="/login">Login</a>
+             </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input autocomplete="new-password" type="text" class="form-control" id="name" formControlName="name">
+                <span class="text-danger" *ngIf="registerForm.controls.name.errors?.required && registerForm.controls.name.touched">First Name is required!</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="text" autocomplete="new-password" class="form-control" id="email" formControlName="email">
+                <span class="text-danger" *ngIf="registerForm.controls.email.errors?.required && registerForm.controls.email.touched">Email is required!</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="mobile" class="form-label">Mobile Number</label>
+                <input type="text" class="form-control" autocomplete="new-password" id="mobile" formControlName="mobile">
+                <span class="text-danger" *ngIf="registerForm.controls.mobile.errors?.required && registerForm.controls.mobile.touched">Mobile Number is required!</span>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col mb-3 ">
+                <label for="pwd" class="form-label">Password</label>
+                <input type="password" class="form-control" autocomplete="new-password" id="pwd" formControlName="password">
+                <span class="text-danger" *ngIf="registerForm.controls.password.errors?.required && registerForm.controls.password.touched">Password is required</span>
+                <span class="text-danger" *ngIf="registerForm.controls.password.errors?.minlength && registerForm.controls.password.touched">The password must be atleast 8 characters long.</span>
+                <span class="text-danger" *ngIf="registerForm.controls.password.errors?.pattern && registerForm.controls.password.touched">It must contain atleast one lowercase, uppercase, number and special character each.</span>
+            </div>
+            <div class="col mb-3">
+                <label for="rpwd" class="form-label">Repeat Password</label>
+                <input type="password" class="form-control" autocomplete="new-password" id="rpwd" formControlName="password_confirmation">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
