@@ -24,4 +24,4 @@ export class AppComponent {
 
 
 // local
-export const baseUrl = 'http://localhost:8000/api'; 
+export const baseUrl = 'https://manoj02021998.github.io/invoice/backend/api'; 
